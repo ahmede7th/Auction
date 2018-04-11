@@ -17,7 +17,11 @@ module.exports = function (app) {
     expiration_date: {
       type: DataTypes.DATE,
       allowNull: false
-    }
+    },
+    seller_username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     hooks: {
       beforeCount(options) {
