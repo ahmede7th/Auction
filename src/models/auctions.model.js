@@ -5,23 +5,19 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const users = sequelizeClient.define('users', {
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    password: {
+  const auctions = sequelizeClient.define('auctions', {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-
-
+    current_price: {
+      type: DataTypes.DECIMAL(2),
+      allowNull: false
+    },
+    expiration_date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {
     hooks: {
       beforeCount(options) {
@@ -31,11 +27,10 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  users.associate = function (models) {
-    users.hasMany(models.auctions, { foreignKey: 'seller_id' })
+  auctions.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return users;
+  return auctions;
 };
