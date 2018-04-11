@@ -4,6 +4,8 @@ const auth = require('feathers-authentication-hooks')
 
 const addSellerUsername = require('../../hooks/add-seller-username');
 
+const addTopBidder = require('../../hooks/add-top-bidder');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -13,7 +15,7 @@ module.exports = {
       idField:'id',
        as: 'seller_id'}), addSellerUsername()],
     update: [],
-    patch: [],
+    patch: [addTopBidder()],
     remove: []
   },
 

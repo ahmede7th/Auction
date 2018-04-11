@@ -33,6 +33,7 @@ module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   users.associate = function (models) {
     users.hasMany(models.auctions, { foreignKey: 'seller_id' })
+    users.hasMany(models.auctions, { foreignKey: 'top_bidder_id' })
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

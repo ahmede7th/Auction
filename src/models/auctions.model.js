@@ -11,7 +11,7 @@ module.exports = function (app) {
       allowNull: false
     },
     current_price: {
-      type: DataTypes.DECIMAL(2),
+      type: DataTypes.DECIMAL(100, 2), //First value is number of digets, and second is after the decimal point
       allowNull: false
     },
     expiration_date: {
@@ -21,6 +21,10 @@ module.exports = function (app) {
     seller_username: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    top_bidder: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
   }, {
     hooks: {
