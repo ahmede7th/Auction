@@ -6,6 +6,8 @@ const addSellerUsername = require('../../hooks/add-seller-username');
 
 const addTopBidder = require('../../hooks/add-top-bidder');
 
+const placeBid = require('../../hooks/place-bid');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -15,7 +17,7 @@ module.exports = {
       idField:'id',
        as: 'seller_id'}), addSellerUsername()],
     update: [],
-    patch: [addTopBidder()],
+    patch: [addTopBidder(), placeBid()],
     remove: []
   },
 
