@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import { Container, Content, Button, Text } from 'native-base';
+import React from 'react';
 
-export default class ButtonExample extends Component {
-  render(){
-    return (
-      <Container>
-        <Content>
-          <Button>
-            <Text> Click Me! </Text>
-          </Button>
-        </Content>
-      </Container>
-    );
-  }
-}
+
+import store from './store';
+import Routes from './routes'
+
+export default () => (
+
+    <Routes />
+
+
+)

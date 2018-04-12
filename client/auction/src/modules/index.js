@@ -6,10 +6,11 @@ import socketio from 'feathers-socketio/client';
 import authentication from 'feathers-authentication-client';
 import rest from 'feathers-rest/client';
 import superagent from 'superagent';
+import io from 'socket.io-client'
 
 export const rootReducer = combineReducers({ });
 
-export default function* rootSaga(){
+export function* rootSaga(){
   yield [
   ];
 }
