@@ -13,9 +13,12 @@ export default function* rootSaga(){
   yield [
   ];
 }
-const socket = io('http://localhost:3030/');
+
+const host = 'http://localhost:3030/';
+
+const socket = io(host);
 const app = feathers()
   .configure(socketio(socket))
-  .configure(rest('http://localhost:3030').superagent(superagent))
+  .configure(rest(host).superagent(superagent))
   .config(hooks())
   .configure(authentication({ storage: window.localStorage }));

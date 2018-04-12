@@ -5,8 +5,8 @@ import Login from './login';
 
 export default () => {
   <Router>
-    <Scene>
-      <Scene key="login" component={Login} hideNaveBar />
+    <Scene key="root">
+      <Scene key="login" component={Login} hideNavBar/>
     </Scene>
   </Router>
 
