@@ -1,4 +1,4 @@
-import { takeEvery, fork,  call, put } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
 function something() {
   // call api
