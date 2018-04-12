@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  View
-} from 'react-native';
+import { Container, Content, Button, Text } from 'native-base';
 
-import { Container, Header, Content, Button, Text } from 'native-base';
 export default class ButtonExample extends Component {
-  render() {
+  render(){
     return (
       <Container>
-        <Header />
         <Content>
           <Button>
             <Text> Click Me! </Text>
@@ -20,11 +14,3 @@ export default class ButtonExample extends Component {
     );
   }
 }
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-});
