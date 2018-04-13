@@ -60,5 +60,4 @@ const login = ({ handleSubmit, requestLogin }) => (
 
 export default reduxForm({
   form: 'login',
-
 })(login);
