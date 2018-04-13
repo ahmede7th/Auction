@@ -1,4 +1,4 @@
-import { reducer as formReducer } from 'redux-form';
+import { reducer } from 'redux-form';
 import { combineReducers } from 'redux';
 import { fork } from 'redux-saga/effects'
 import feathers from 'feathers/client';
@@ -15,7 +15,7 @@ import { user } from './user/reducers';
 
 
 export const rootReducer = combineReducers({
-  form: fromReducer,
+  form: reducer,
   user,
  });
 
@@ -32,10 +32,9 @@ const socketApp = feathers()
   .configure(hooks())
   //.configure(rest(host).superagent(superagent))
 
-const restApp = feathers()
+const restApp = feathers() //solved single provider error
   .configure(rest(host).superagent(superagent))
   .configure(hooks())
-  .configure(authentication({}));
+  .configure(authentication({})); //dont need local storage use AsyncStorage
 
 export const users = restApp.service('users');
- 

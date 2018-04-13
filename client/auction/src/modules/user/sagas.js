@@ -5,16 +5,15 @@ import { Actions } from 'react-native-router-flux';
 import{ REQUEST_LOGIN, REQUEST_SIGNUP, receiveLogin } from './actions';
 import { signup, login } from './api';
 
-function callSignup(action) {
-  // call api
+function* callSignup(action) {
   yield put(startSubmit('signup'));
   const { error, response } = yield call(signup, action.payload);
   console.log(response);
   yield put(stopSubmit('signup', response));
-  !error ? Actions.login({}) : '' ;
-   //^ if (!error){Actions.login({})}
+  if (!error) {
+    Actions.login({});
+  }
 }
-
 
 export function* signupSaga() {
   yield takeLatest(REQUEST_SIGNUP, callSignup);
