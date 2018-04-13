@@ -2,7 +2,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import { startSubmit, stopSubmit } from 'redux-form';
 import { Actions } from 'react-native-router-flux';
 
-import{ REQUEST_LOGIN, REQUEST_SIGNUP, RECEIVE_LOGIN } from './actions';
+import{ REQUEST_LOGIN, REQUEST_SIGNUP, receiveLogin } from './actions';
 import { signup, login } from './api';
 
 function callSignup(action) {
@@ -24,7 +24,7 @@ function* callLogin(action) {
   yield put(startSubmit('login'));
   const { error, response } = yield call(login, action.payload);
   console.log(response);
-  
+
   if (!error) {
     yield put(receiveLogin(response.user));
     yield put(stopSubmit('login', {}));
