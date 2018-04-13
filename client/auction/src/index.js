@@ -1,12 +1,11 @@
 import React from 'react';
-
+import { Provider } from 'react-redux';
 
 import store from './store';
-import Routes from './routes'
+import Routes from './routes';
 
 export default () => (
-
-    <Routes />
-
-
-)
+  <Provider store = {store}>
+        <Routes />
+  </Provider>
+);
