@@ -7,4 +7,4 @@ export const user = handleAction(receiveLogin, {
   next(state, action){
     return action.payload;
   },
-}, empty );
+}, empty);

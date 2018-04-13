@@ -12,7 +12,7 @@ const renderField = ({ input: { onChange, ...restInput }, placeholder, secureTex
       {...restInput}
       secureTextEntry={secureTextEntry}
       />
-    { touched && error && <Icon name='ios-close-circle' style={{color:'red'}}/> }
+    { touched && error && <Icon name='ios-close-circle' style={{color:'blue'}}/> }
   </InputGroup>
 )
 
